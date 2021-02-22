@@ -1,5 +1,5 @@
 <template>
-  <div v-if="currentCliente" class="edit-form">
+  <div v-if="!updateClient" class="edit-form">
     <h4>Cliente</h4>
     <form>
       <div class="form-group">
@@ -67,7 +67,8 @@ export default {
   data() {
     return {
       currentCliente: null,
-      message: ''
+      message: '',
+      updateClient: false
     };
   },
   methods: {
@@ -88,6 +89,7 @@ export default {
         .then(response => {
           console.log(response.data);
           this.message = 'The cliente was updated successfully!';
+          this.updateClient = true;
         })
         .catch(e => {
           console.log(e);

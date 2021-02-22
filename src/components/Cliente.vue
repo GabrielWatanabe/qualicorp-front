@@ -55,7 +55,7 @@
 
   <div v-else>
     <br />
-    <p>Por favor clique em um Cliente...</p>
+    <p>Cliente {{updateClient}} atualizado com sucesso</p>
   </div>
 </template>
 

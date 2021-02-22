@@ -21,6 +21,7 @@
           required
           v-model="cliente.cpf"
           name="cpf"
+          placeholder="Digite somente números"
         />
       </div>
 
@@ -65,6 +66,7 @@
           required
           v-model="cliente.dataNascimento"
           name="data_nascimento"
+          placeholder="Ex: dd/mm/ano"
         />
       </div>
 
@@ -103,7 +105,7 @@ export default {
   methods: {
     saveCliente() {
         const Joi = require('@hapi/joi').extend(validator)
- 
+        this.isEmail()
         const cpfSchema = Joi.document().cpf();
         const cpfValid = cpfSchema.validate(this.cliente.cpf);
 
@@ -134,7 +136,22 @@ export default {
     newCliente() {
       this.submitted = false;
       this.cliente = {};
+    },
+
+    isEmail(){
+    var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
+    var check=/@[w-]+./;
+    var checkend=/.[a-zA-Z]{2,3}$/;
+    if(((this.cliente.email.search(exclude) != -1)||(this.cliente.email.search(check)) == -1)||(this.cliente.email.search(checkend) == -1))
+    {
+      alert('Email inválido');
+      return false;
     }
+    else 
+    {
+      return true;
+    }
+}
   }
 };
 </script>

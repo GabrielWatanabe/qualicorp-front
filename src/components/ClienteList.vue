@@ -62,9 +62,6 @@
         <div>
           <label><strong>Data de Nascimento:</strong></label> {{ currentCliente.dataNascimento }}
         </div>
-        <div>
-          <label><strong>Status:</strong></label> {{ currentCliente.published ? "Published" : "Pending" }}
-        </div>
 
         <a class="badge badge-warning"
           :href="'/clientes/' + currentCliente.id"

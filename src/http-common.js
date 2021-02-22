@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://qualicorp-back.herokuapp.com/",
+  baseURL: "https://qualicorp-back.herokuapp.com/api",
   headers: {
     "Content-type": "application/json",
     "Access-Control-Allow-Origin": "*"

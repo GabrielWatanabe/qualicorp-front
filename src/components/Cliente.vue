@@ -38,11 +38,6 @@
           v-model="currentCliente.dataNascimento"
         />
       </div>
-
-      <div class="form-group">
-        <label><strong>Status:</strong></label>
-        {{ currentCliente.published ? "Published" : "Pending" }}
-      </div>
     </form>
 
     <button class="badge badge-danger mr-2"

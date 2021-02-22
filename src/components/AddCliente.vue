@@ -72,7 +72,7 @@
     </div>
 
     <div v-else>
-      <h4>You submitted successfully!</h4>
+      <h4>Você se cadastrou com sucesso!</h4>
       <button class="btn btn-success" @click="newCliente">Adicionar</button>
     </div>
   </div>

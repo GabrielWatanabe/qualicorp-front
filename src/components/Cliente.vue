@@ -55,7 +55,7 @@
 
   <div v-else>
     <br />
-    <p>Cliente {{updateClient}} atualizado com sucesso</p>
+    <p>Cliente {{currentCliente.nome}} atualizado com sucesso</p>
   </div>
 </template>
 

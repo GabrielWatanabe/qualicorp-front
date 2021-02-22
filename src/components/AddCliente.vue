@@ -113,7 +113,6 @@ export default {
   },
   methods: {
     saveCliente() {
-      this.validateAllInputs();
         const Joi = require('@hapi/joi').extend(validator)
         const cpfSchema = Joi.document().cpf();
         const cpfValid = cpfSchema.validate(this.cliente.cpf);
@@ -146,15 +145,6 @@ export default {
       this.submitted = false;
       this.cliente = {};
     },
-
-    validateAllInputs() {
-      // $("input").blur(function(){
-      if($("input").val() == "")
-          {
-              $(this).css({"border" : "1px solid #F00", "padding": "2px"});
-          }
-      // });
-    }
   }
 };
 </script>

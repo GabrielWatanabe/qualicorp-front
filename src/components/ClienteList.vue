@@ -71,6 +71,7 @@
       </div>
       <div v-else>
         <br />
+        <p>Cliente {{ currentCliente.nomr }} atualizado com sucesso</p>
         <p>Por favor clique em um Cliente...</p>
       </div>
     </div>

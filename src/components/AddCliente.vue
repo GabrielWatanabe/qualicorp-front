@@ -10,6 +10,7 @@
           required
           v-model="cliente.nome"
           name="nome"
+          value=""
         />
       </div>
 
@@ -22,6 +23,7 @@
           v-model="cliente.cpf"
           name="cpf"
           placeholder="Digite somente números"
+          value=""
         />
       </div>
 
@@ -33,6 +35,8 @@
           required
           v-model="cliente.email"
           name="email"
+          type="email"
+          value=""
         />
       </div>
 
@@ -44,6 +48,9 @@
           required
           v-model="cliente.telefone"
           name="telefone"
+          pattern="^\d{2}-\d{5}-\d{4}$"
+          type="tel"
+          value=""
         />
       </div>
 
@@ -55,6 +62,7 @@
           required
           v-model="cliente.endereco"
           name="endereco"
+          value=""
         />
       </div>
 
@@ -67,6 +75,7 @@
           v-model="cliente.dataNascimento"
           name="data_nascimento"
           placeholder="Ex: dd/mm/ano"
+          value=""
         />
       </div>
 
@@ -104,8 +113,8 @@ export default {
   },
   methods: {
     saveCliente() {
+      this.validateAllInputs();
         const Joi = require('@hapi/joi').extend(validator)
-        this.isEmail()
         const cpfSchema = Joi.document().cpf();
         const cpfValid = cpfSchema.validate(this.cliente.cpf);
 
@@ -138,20 +147,14 @@ export default {
       this.cliente = {};
     },
 
-    isEmail(){
-    var exclude=/[^@-.w]|^[_@.-]|[._-]{2}|[@.]{2}|(@)[^@]*1/;
-    var check=/@[w-]+./;
-    var checkend=/.[a-zA-Z]{2,3}$/;
-    if(((this.cliente.email.search(exclude) != -1)||(this.cliente.email.search(check)) == -1)||(this.cliente.email.search(checkend) == -1))
-    {
-      alert('Email inválido');
-      return false;
+    validateAllInputs() {
+      // $("input").blur(function(){
+      if($("input").val() == "")
+          {
+              $(this).css({"border" : "1px solid #F00", "padding": "2px"});
+          }
+      // });
     }
-    else 
-    {
-      return true;
-    }
-}
   }
 };
 </script>

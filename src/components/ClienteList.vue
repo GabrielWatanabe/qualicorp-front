@@ -45,7 +45,7 @@
       <div v-if="currentCliente">
         <h4>Cliente</h4>
         <div>
-          <label><strong>Nome:</strong></label> {{ currentCliente.title }}
+          <label><strong>Nome:</strong></label> {{ currentCliente.nome }}
         </div>
         <div>
           <label><strong>CPF:</strong></label> {{ currentCliente.cpf }}
